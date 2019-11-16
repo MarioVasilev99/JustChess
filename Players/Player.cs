@@ -1,19 +1,23 @@
-﻿namespace JustChess.Players
+﻿ namespace JustChess.Players
 {
     using System;
     using System.Collections.Generic;
     using JustChess.Common;
     using JustChess.Figures.Contracts;
+    using JustChess.Players.Contracts;
 
-    public class Player
+    public class Player : IPlayer
     {
         private readonly ICollection<IFigure> figures;
 
-        public Player(ChessColor color)
+        public Player(string name, ChessColor color)
         {
-            this.figures = new List<IFigure>();
+            this.Name = name;
             this.Color = color;
+            this.figures = new List<IFigure>();
         }
+
+        public string Name { get; private set; }
 
         public ChessColor Color { get; private set; }
 
