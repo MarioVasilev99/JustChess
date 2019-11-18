@@ -1,16 +1,23 @@
 ﻿namespace JustChess.Engine
 {
     using System.Collections.Generic;
+
     using JustChess.Engine.Contracts;
     using JustChess.Players.Contracts;
+    using JustChess.Renderers.Contracts;
 
-    class StandardTwoPlayerEngine : IChessEngine
+    public class StandardTwoPlayerEngine : IChessEngine
     {
-        private readonly IEnumerable<IPlayer> players;
+        private readonly IList<IPlayer> players;
+        private readonly IRenderer renderer;
+
+        public StandardTwoPlayerEngine(IRenderer renderer)
+        {
+            this.renderer = renderer;
+        }
 
         public void Initialize(IGameInitializationStrategy gameInitializationStrategy)
         {
-            gameInitializationStrategy.Initialize();
         }
 
         public void Start()

@@ -2,10 +2,11 @@
 {
     using JustChess.Common;
     using JustChess.Figures.Contracts;
-    public class Pawn : BaseFigure, IFigure
+
+    public class Queen : BaseFigure, IFigure
     {
-        public Pawn(ChessColor color)
-         : base(color)
+        public Queen(ChessColor color)
+            : base(color)
         {
         }
     }
