@@ -2,6 +2,8 @@
 {
     public class GlobalConstants
     {
+        public const int StandartGameNumberOfPlayers = 2;
+
         public const int StandartGameTotalBoardRows = 8;
         public const int StandartGameTotalBoardCols = 8;
 
@@ -12,5 +14,6 @@
         public const char MaximumColumnValueOnBoard = 'h';
 
         public const string EmptyString = "";
+
     }
 }

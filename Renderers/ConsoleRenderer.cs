@@ -2,7 +2,9 @@
 {
     using System;
     using System.Threading;
+
     using JustChess.Board.Contracts;
+    using JustChess.Common.Console;
     using JustChess.Renderers.Contracts;
 
     public class ConsoleRenderer : IRenderer
@@ -11,14 +13,12 @@
 
         public void RenderMainMenu()
         {
-            int centerRow = Console.WindowHeight / 2;
-            int centerCol = Console.WindowWidth / 2 - Logo.Length / 2 ;
-            Console.SetCursorPosition(centerCol, centerRow);
+            ConsoleHelpers.SetCursorAtCenter(Logo.Length);
+            Console.WriteLine(Logo);
 
             //TODO: add main menu
             Thread.Sleep(1000);
 
-            Console.WriteLine(Logo);
         }
 
         public void RenderBoard(IBoard board)
