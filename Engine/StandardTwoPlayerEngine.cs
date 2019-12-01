@@ -3,6 +3,7 @@
     using System.Collections.Generic;
 
     using JustChess.Board;
+    using JustChess.Board.Contracts;
     using JustChess.Common;
     using JustChess.Engine.Contracts;
     using JustChess.InputProvides.Contracts;
@@ -14,17 +15,20 @@
         private readonly IList<IPlayer> players;
         private readonly IRenderer renderer;
         private readonly IInputProvider input;
+        private readonly IBoard board;
 
         public StandardTwoPlayerEngine(IRenderer renderer, IInputProvider inputProvider)
         {
             this.renderer = renderer;
             this.input = inputProvider;
+            this.board = new Board();
         }
 
         public void Initialize(IGameInitializationStrategy gameInitializationStrategy)
         {
             var players = this.input.GetPlayers(GlobalConstants.StandartGameNumberOfPlayers);
-            gameInitializationStrategy.Initialize(players, new Board());  
+            gameInitializationStrategy.Initialize(players, this.board);
+            this.renderer.RenderBoard(this.board);
         }
 
         public void Start()
