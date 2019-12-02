@@ -7,6 +7,7 @@
     using JustChess.Common;
     using JustChess.Engine.Contracts;
     using JustChess.InputProvides.Contracts;
+    using JustChess.Players;
     using JustChess.Players.Contracts;
     using JustChess.Renderers.Contracts;
 
@@ -26,7 +27,14 @@
 
         public void Initialize(IGameInitializationStrategy gameInitializationStrategy)
         {
-            var players = this.input.GetPlayers(GlobalConstants.StandartGameNumberOfPlayers);
+            // TODO: REMOVE PLAYER USING
+            var players = new List<IPlayer>
+            {
+                new Player("Pesho", ChessColor.Black),
+                new Player("Gosho", ChessColor.White)
+            };
+            //this.input.GetPlayers(GlobalConstants.StandartGameNumberOfPlayers);
+
             gameInitializationStrategy.Initialize(players, this.board);
             this.renderer.RenderBoard(this.board);
         }

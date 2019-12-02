@@ -14,7 +14,7 @@
         public static void Start()
         {
             IRenderer renderer = new ConsoleRenderer();
-            renderer.RenderMainMenu();
+            //renderer.RenderMainMenu();
 
             IInputProvider inputProvider = new ConsoleInputProvider();
 
